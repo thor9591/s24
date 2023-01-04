@@ -1,0 +1,64 @@
+//s21
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct emp
+{
+int n, n1;
+char c[100];
+} EMP;
+void sort(EMP a[], int i);
+void main()
+{
+FILE *s;
+int i = 0;
+int j, key;
+EMP a[100];
+s = fopen("emp.txt", "r");
+if (s == NULL)
+{
+printf("\nfile dosent exist");
+}
+else
+{
+while (!feof(s))
+{
+fscanf(s, "%d %s %d", &a[i].n, a[i].c, &a[i].n1);
+i++;
+}
+}
+printf("\n\nBefore sorting");
+for (j = 0; j < i - 1; j++)
+{
+printf("%d %s %d", a[j].n, a[j].c, a[j].n1);
+printf("\n");
+}
+sort(a, i);
+void sort(EMP a[], int i)
+{
+EMP s;
+int p, j, key;
+for (j = 1; j < n; j++)
+{
+key = a[j];
+for (p = j - 1; p >= 0; p--)
+{
+if (strcmp(a[p],key)>0)
+a[p + 1] = a[p];
+else
+break;
+}
+a[p + 1] = key;
+}
+}
+printf("\n\nAfter sorting");
+for (j = 0; j < i; j++)
+{
+printf("%d %s %d", a[j].n, a[j].c, a[j].n1);
+printf("\n");
+}
+}
+
+
+//cc filename.h
+//cc filename.c
+//  ./a.out
